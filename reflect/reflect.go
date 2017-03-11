@@ -57,7 +57,7 @@ func formatAtom(v reflect.Value) string {
 }
 
 type A struct {
-	Domain     string
+	Domain     string `json:"do"`
 	StateSlice []string
 	LineMap    map[string]int
 	Ptr        *int
@@ -92,5 +92,7 @@ func main() {
 	fmt.Println(reflect.ValueOf(hehe).Kind())
 	fmt.Println(reflect.ValueOf(a).Field(4).Kind())
 	fmt.Println(reflect.ValueOf(a).Field(4).Elem().Kind())
+
+	fmt.Println(reflect.ValueOf(a).FieldByName("do"))
 	return
 }
